@@ -1,1 +1,114 @@
+#include <iostream>
+#include <stack>
+using namespace std;
 
+class Node {
+    public:
+    int data;
+    Node *next;
+    Node(int value){
+        data=value;
+        next=NULL;
+    }
+};
+class Stack{
+    public:
+    int size;
+    Node *top;
+    Stack(){
+        size=0;
+        top=NULL;
+    }
+    void push(int value){
+        Node *temp=new Node(value);
+        if (temp==NULL){
+            cout<<"stack overflow";
+            return;
+        }
+        temp->next=top;
+        top=temp;
+        size++;
+        cout<<value<<"pushed in the stack"<<endl;
+    }
+    void pop(){
+        Node *temp=top;
+        if (temp==NULL){
+            cout<<"stack overflow"<<endl;
+            return;
+        }
+        cout<<top->data<<"popped im the stack"<<endl;
+        top=top->next;
+        delete temp;
+        size--;
+      
+    }
+};
+int main(){
+    Stack s;
+    s.push(10);
+    s.push(20);
+    s.pop();
+    s.pop();
+    return 0;
+}
+        
+
+
+
+**with argukment**
+
+
+
+#include <iostream>
+#include <stack>
+using namespace std;
+
+class Node {
+    public:
+    int data;
+    Node *next;
+    Node(int value){
+        data=value;
+        next=NULL;
+    }
+};
+class Stack{
+    public:
+    int size;
+    Node *top;
+    Stack(){
+        size=0;
+        top=NULL;
+    }
+    void push(int value){
+        Node *temp=new Node(value);
+        if (temp==NULL){
+            cout<<"stack overflow";
+            return;
+        }
+        temp->next=top;
+        top=temp;
+        size++;
+        cout<<value<<"pushed in the stack"<<endl;
+    }
+    void pop(int value){
+        Node *temp=new Node(value);
+        temp=top;
+        if (temp==NULL){
+            cout<<"stack overflow"<<endl;
+            return;
+        }
+        top=top->next;
+        delete temp;
+        size--;
+        cout<<value<<"popped im the stack"<<endl;
+    }
+};
+int main(){
+    Stack s;
+    s.push(10);
+    s.push(20);
+    s.pop(20);
+    return 0;
+}
+        
