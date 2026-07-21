@@ -1,0 +1,62 @@
+class Solution {
+public:
+Stack(int S){
+    top=-1;
+}
+void push(int value){
+    if (top==s.length()-1){
+        return;
+    }
+    else{
+        for (int i=0;i<s.length;i++){
+            if ((s[i]="(")||(s[i]="{")||(s[i]=="[")){
+                i++;
+                if (s[i]!=" "){
+                    if ((s[i]="(")||(s[i]="{")||(s[i]=="[")){
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+}
+    bool isValid(string s) {
+
+
+    }
+};
+
+**Algorithm**
+
+1.create empty stack
+2.Traverse the string from left to right
+3.if opening bracket "(" "{" "[" then push it into stack
+4.otherwise its a closing bracket
+*if stack is empty then return false
+*else pop the top character of stack
+and match it with the curr character
+*if it does not match return false 
+5.after scanning if 
+stack empty ,return true
+else false
+
+**Correct Code**
+
+class Solution{
+public:
+bool IsValid(string s)
+{
+stack<char>st;
+for (char &ch:s){
+if (ch=='('||ch=='{'||ch=='['){
+st.push(ch);
+}else{
+if (st.empty()){
+return false;
+if ((ch==')' && st.top!='(')||(ch=='} && st.top!='{')||(ch==']' && st.top!='[')){
+return false;
+st.pop();
+}
+return st.empty();
+};
+
