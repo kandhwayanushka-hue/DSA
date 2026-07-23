@@ -1,0 +1,19 @@
+#include <iostream>
+using namespace std;
+
+class sum{
+    public:
+    int a,b;
+    void addNum(){
+        cout<<a<<"+"<<b<<"="<<a+b;
+    }
+};
+
+int main() {
+    sum s1;
+    s1.a=65;
+    s1.b=35;
+    s1.addNum();
+
+    return 0;
+}
