@@ -17,3 +17,32 @@ int main() {
 
     return 0;
 }
+
+Q2-When the data input is made private 
+
+#include <iostream>
+using namespace std;
+
+class sum{
+    private:
+    int a,b;
+    public:
+    void inputData(){
+        cout<<"Enter first number";
+        cin>>a;
+        cout<<"Enter second number";
+        cin>>b;
+    }
+    void outputData(){
+        cout<<"sum of two numbers";
+        cout<<a<<"+"<<b<<"="<<a+b;
+    }
+};
+
+int main() {
+    sum s1;
+    s1.inputData();
+    s1.outputData();
+
+    return 0;
+}
