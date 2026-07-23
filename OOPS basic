@@ -46,3 +46,73 @@ int main() {
 
     return 0;
 }
+
+
+Q Make a class that inputss students name marks and then finds the average of it 
+
+#include <iostream>
+#include <string>
+using namespace std;
+
+class studentInfo {
+private:
+    int n;
+    string b;
+    double c;
+    int marks[100]; // array to store marks
+public:
+    void inputData() {
+        cout << "Name of the student: ";
+        cin >> b;
+        cout << "Enter the number of subjects: ";
+        cin >> n;
+        int sum = 0;
+        for (int i = 0; i < n; i++) {
+            cout << "Enter marks for subject " << i + 1 << ": ";
+            cin >> marks[i];
+            sum += marks[i];
+        }
+        c = (double)sum / n;
+    }
+    void outputData() {
+        cout << "Name of student: " << b << endl;
+        for (int i = 0; i < n; i++) {
+            cout << "Marks in subject " << i + 1 << ": " << marks[i] << endl;
+        }
+        cout << "Average: " << c << endl;
+    }
+};
+
+int main() {
+    studentInfo s1;
+    s1.inputData();
+    s1.outputData();
+    return 0;
+}
+
+
+Q. If arguments are passed in the class name 
+#include <iostream>
+#include <string>
+using namespace std;
+
+class StudentInfo {
+private:
+    int r;
+    string a;
+    int n;
+public:
+    StudentInfo(string name, int roll, int marks) {
+        a = name;
+        r = roll;
+        n = marks;
+        cout << "Name: " << a << endl;
+        cout << "Roll: " << r << endl;
+        cout << "Marks: " << n << endl;
+    }
+};
+
+int main() {
+    StudentInfo s1("Anushka", 9, 56);
+    return 0;
+}
