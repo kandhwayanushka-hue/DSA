@@ -116,3 +116,57 @@ int main() {
     StudentInfo s1("Anushka", 9, 56);
     return 0;
 }
+
+
+Q Call by value function 
+
+#include <iostream>
+using namespace std;
+
+void CallByValue(int a, int b) {
+    int temp = a;
+    a = b;
+    b = temp;
+    cout << a << " " << b << endl;
+}
+
+int main() {
+    int x = 2, y = 3;
+    CallByValue(x, y);
+    cout << x << " " << y; // original unchanged
+    return 0;
+}
+
+Q.Call by reference
+
+#include <iostream>
+using namespace std;
+
+
+void CallByReference(int& a){
+    a--;
+}
+int main(){
+    int a;
+    cout<<"Enter the value";
+    cin>>a;
+    CallByReference(a);
+    cout<<a<<endl;
+}
+
+#include <iostream>
+using namespace std;
+
+void CallByReference(int &a, int &b) {
+    int temp = a;
+    a = b;
+    b = temp;
+}
+
+int main() {
+    int x = 2, y = 3;
+    cout << "Before: " << x << " " << y << endl;
+    CallByReference(x, y);
+    cout << "After: " << x << " " << y << endl;
+    return 0;
+}
