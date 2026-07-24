@@ -170,3 +170,35 @@ int main() {
     cout << "After: " << x << " " << y << endl;
     return 0;
 }
+
+
+Q call by reference and call by address function 
+ #include <iostream>
+using namespace std;
+void CallByAddress(int *a ,int *b){
+    int temp=*a;
+    *a=*b;
+    *b=temp;
+    cout<<*a<<" "<<*b<<endl;
+}
+void CallByReference(int &a, int &b){
+    int temp=a;
+    a=b;
+    b=temp;
+    cout<<a<<" "<<b<<endl;
+}
+int main(){
+    int a,b;
+    cout<<"Enter the digits";
+    cin>>a>>b;
+    cout<<"After swapping the digits by call by address are"<<endl;
+    CallByAddress(&a,&b);
+    cout<,"After wapping the digits by call by reference are"<<endl;
+    CallByReference(a,b);
+    return 0;
+    
+}
+
+
+
+
