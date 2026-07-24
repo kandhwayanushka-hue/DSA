@@ -174,12 +174,16 @@ int main() {
 
 Q call by reference and call by address function 
  #include <iostream>
+#include <cmath>
 using namespace std;
 void CallByAddress(int *a ,int *b){
     int temp=*a;
     *a=*b;
     *b=temp;
     cout<<*a<<" "<<*b<<endl;
+}
+void square(int a,int *b){
+    *b=a*a;
 }
 void CallByReference(int &a, int &b){
     int temp=a;
@@ -193,8 +197,11 @@ int main(){
     cin>>a>>b;
     cout<<"After swapping the digits by call by address are"<<endl;
     CallByAddress(&a,&b);
-    cout<,"After wapping the digits by call by reference are"<<endl;
+    cout<<"After wapping the digits by call by reference are"<<endl;
     CallByReference(a,b);
+    cout<<"the double is"<<endl;
+    square(a,&b);
+    cout<<b;
     return 0;
     
 }
