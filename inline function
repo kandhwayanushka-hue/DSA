@@ -1,0 +1,43 @@
+inline function just not create stack memory 
+compiler attempts to replace the function call with the actual function code 
+improves performance for small functions 
+memory saves 
+
+syntax=
+inline return type function name(parameter)
+{
+//body
+}
+
+reference variable 
+scope resolution operator 
+
+
+#include <iostream>
+using namespace std;
+
+class Demo {
+public:
+    void display() { cout << "no argument function" << endl; }
+    void display(int x) { cout << "integer " << x << endl; }
+    void display(double y) { cout << "double " << y << endl; }
+    void display(int x, int y) { cout << "sum " << x + y << endl; }
+
+    int add(int x, int y) { return x + y; }
+    int add(int x, float y) { return x + y; }
+    void add(int a, int b, int c) { cout << a + b + c << endl; }
+};
+
+int main() {
+    int a, b, c, x, y;
+    cout << "Enter three digits: ";  cin >> a >> b >> c;
+    cout << "Enter two digits: ";    cin >> x >> y;
+
+    Demo obj;
+    obj.display();
+    obj.display(x);
+    obj.display(y);
+    obj.display(a, b);
+
+    return 0;
+}
