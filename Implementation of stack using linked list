@@ -1,0 +1,82 @@
+#include <iostream>
+using namespace std;
+
+class Node {
+public:
+    int data;
+    Node *next;
+    Node(int value) {
+        data = value;
+        next = NULL;
+    }
+};
+
+class Stack {
+    int size;
+    Node *top;
+public:
+    Stack() {
+        size = 0;
+        top = NULL;
+    }
+
+    void push(int value) {
+        Node *temp = new Node(value);
+        if (temp == NULL) {
+            cout << "stack overflow" << endl;
+            return;
+        }
+        temp->next = top;
+        top = temp;
+        size++;
+        cout << value << " inserted in stack" << endl;
+    }
+
+    void pop() {
+        if (top == NULL) {
+            cout << "stack underflow" << endl;
+            return;
+        }
+        Node *temp = top;
+        cout << "popped " << top->data << " from the stack" << endl;
+        top = top->next;
+        delete temp;
+        size--;
+    }
+
+    int peek() {
+        if (top == NULL) {
+            cout << "stack empty" << endl;
+            return -1;
+        }
+        return top->data;
+    }
+
+    bool IsEmpty() {
+        return top == NULL;
+    }
+
+    int IsSize() {
+        return size;
+    }
+
+    ~Stack() {
+        while (top != NULL) {
+            Node *temp = top;
+            top = top->next;
+            delete temp;
+        }
+    }
+};
+
+int main() {
+    Stack s;
+    s.push(5);
+    s.push(7);
+    s.push(4);
+    s.pop();
+    cout << s.peek() << endl;
+    cout << s.IsEmpty() << endl;
+    cout << s.IsSize() << endl;
+    return 0;
+}
