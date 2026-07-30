@@ -18,3 +18,11 @@ int main(){
 	cout<<"sum= "<<sum(5,7,8,4,9,10)<<endl;
 	return 0;
 }
+How it works step by step:
+
+Code	What it does
+va_list args;	Declares a pointer to the argument list
+va_start(args, count);	Initializes args to point to the first variadic argument (after count)
+va_arg(args, int)	Retrieves the next argument as int, then advances to the next
+va_end(args);	Cleans up (required — prevents undefined behavior)
+Example call:
