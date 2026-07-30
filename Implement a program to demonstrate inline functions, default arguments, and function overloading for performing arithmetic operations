@@ -1,4 +1,13 @@
- #include <iostream>
+Concept	What it does
+Inline function	add() — compiler replaces the call with the actual code (no function call overhead) for small, frequently used functions
+Function overloading	Two multiply() functions with same name but different parameters (2 vs 3 args) — compiler picks the right one based on arguments
+Default arguments	Not in this program, but would be: int add(int a, int b = 0) — if you call add(5), b defaults to 0
+
+
+
+
+
+#include <iostream>
 using namespace std;
 
 inline int add(int a, int b) {
