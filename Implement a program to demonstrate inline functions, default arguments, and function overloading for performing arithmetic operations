@@ -1,0 +1,29 @@
+ #include <iostream>
+using namespace std;
+
+inline int add(int a, int b) {
+    return a + b;
+}
+
+int multiply(int a, int b) {
+    return a * b;
+}
+
+int multiply(int a, int b, int c) {
+    return a * b * c;
+}
+
+int main() {
+    int x, y;
+    cout << "Enter the integers: ";
+    cin >> x >> y;
+
+    cout << "using inline function" << endl;
+    cout << "Addition = " << add(x, y) << endl;
+
+    cout << "using Function overloading" << endl;
+    cout << "Multiplication of two numbers = " << multiply(x, y) << endl;
+    cout << "Multiplication of three numbers = " << x << "," << y << ",5) = " << multiply(x, y, 5) << endl;
+
+    return 0;
+}
