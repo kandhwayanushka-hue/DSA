@@ -1,0 +1,110 @@
+<b>When the data is public</b>
+
+
+#include <iostream>
+using namespace std;
+
+
+class Employee{
+    public:
+    string name;
+    int employee_Id;
+    string employee_department;
+    float gross_salary;
+    float net_salary;
+    void salary(){
+        float BA;
+        float DA;
+        float HRA;
+        float PF;
+        cout<<"Enter the base salary"<<endl;
+        cin>>BA;
+        cout<<"Enter the DA"<<endl;
+        cin>>DA;
+        cout<<"Enter the HRA"<<endl;
+        cin>>HRA;
+        cout<<"Enter the PF"<<endl;
+        gross_salary=BA+DA+HRA;
+        if (gross_salary>5000){
+            net_salary=gross_salary-PF;
+        }else{
+            net_salary=gross_salary;
+        }
+        
+        cout<<"The net salary"<<endl;
+    }
+    void input_Employee(){
+        cout<<"Enter Employee name"<<endl;
+        cin>>name;
+        cout<<"Enter Employee Id"<<endl;
+        cin>>employee_Id;
+        cout<<"Enter employee department"<<endl;
+        cin>>employee_department;
+    }
+    void display(){
+        cout<<"Name"<<name<<endl;
+        cou<<"Employee Id"<<employee_Id<<endl;
+        cout<<"Employee department"<<employee_department<<endl;
+        cout<<"gross salry"<<gross_salary<<endl;
+        cout<<"net salary"<<net_salary<<endl;
+        
+    }
+    
+};
+int main(){
+    Employee e;
+    e.input_Employee();
+    e.salary();
+    e.display();
+    return 0;
+}
+
+<b>when the data is private </b>
+
+
+#include <iostream>
+using namespace std;
+
+class Employee {
+private:                              // ← all data hidden
+    string name;
+    int employee_Id;
+    string employee_department;
+    float gross_salary;
+    float net_salary;
+
+    void calculateNet() {              // private helper — can't be called from main
+        if (gross_salary > 5000)
+            net_salary = gross_salary - PF;
+        else
+            net_salary = gross_salary;
+    }
+
+public:                               // ← only these accessible from main
+    void setSalary(float BA, float DA, float HRA, float PF) {
+        gross_salary = BA + DA + HRA;
+        calculateNet();                // private method used internally
+    }
+
+    float getGrossSalary() { return gross_salary; }  // getter
+    float getNetSalary() { return net_salary; }      // getter
+
+    void input_Employee() {
+        cout << "Enter name, ID, department: ";
+        cin >> name >> employee_Id >> employee_department;
+    }
+
+    void display() {
+        cout << name << " " << employee_Id << " " << employee_department
+             << " | Gross: " << gross_salary << " | Net: " << net_salary << endl;
+    }
+};
+
+int main() {
+    Employee e;
+    e.input_Employee();
+    e.setSalary(10000, 2000, 1500, 800);
+    cout << "Gross: " << e.getGrossSalary() << endl;
+    e.display();
+    return 0;
+}
