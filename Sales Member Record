@@ -1,0 +1,84 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+class Sales_Member {
+private:
+    float salary;
+    float net_salary;
+    string password;
+    int n;
+    vector<float> selling_price;
+
+public:
+    string name;
+    int SalesMember_id;
+    string SalesMember_department;
+    string Post;
+
+    void input_SalesMember() {
+        cout << "Enter SalesMember name: ";
+        cin >> name;
+        cout << "Enter Sales member Id: ";
+        cin >> SalesMember_id;
+        cout << "Enter password: ";
+        cin >> password;
+        cout << "Enter Sales Member Department: ";
+        cin >> SalesMember_department;
+        cout << "Enter sales member post: ";
+        cin >> Post;
+        cout << "Enter base salary: ";
+        cin >> salary;
+        cout << "Total number of items sold: ";
+        cin >> n;
+        selling_price.resize(n);
+        cout << "Enter selling price of items:" << endl;
+        for (int i = 0; i < n; i++) cin >> selling_price[i];
+
+        net_salary = salary;
+        for (int i = 0; i < n; i++) {
+            if (n <= 10)
+                net_salary += 0;
+            else if (n <= 20)
+                net_salary += 0.05 * selling_price[i];
+            else if (n <= 30)
+                net_salary += 0.075 * selling_price[i];
+            else if (n <= 40)
+                net_salary += 0.1 * selling_price[i];
+            else
+                net_salary += 0.15 * selling_price[i];
+        }
+    }
+
+    bool accessSalary(int id, string pass) {
+        if (id == SalesMember_id && pass == password) {
+            cout << "Access granted. Net Salary: " << net_salary << endl;
+            return true;
+        }
+        cout << "Access denied. Invalid ID or password." << endl;
+        return false;
+    }
+
+    void display() {
+        cout << "Name: " << name << endl;
+        cout << "Sales member Id: " << SalesMember_id << endl;
+        cout << "Department: " << SalesMember_department << endl;
+        cout << "Post: " << Post << endl;
+        cout << "Items sold: " << n << endl;
+    }
+};
+
+int main() {
+    Sales_Member s;
+    s.input_SalesMember();
+
+    int id;
+    string pass;
+    cout << "\nEnter employee ID to view salary: ";
+    cin >> id;
+    cout << "Enter password: ";
+    cin >> pass;
+    s.accessSalary(id, pass);
+
+    s.display();
+    return 0;
+}
