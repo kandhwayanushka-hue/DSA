@@ -1,0 +1,82 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+class Queue{
+    int *arr;
+    int front,rear,size;
+    public:
+    Queue(int n){
+        arr=new int[n];
+        size=n;
+        front=rear=-1;
+    }
+    ~Queue(){
+        delete[] arr;
+    }
+    bool IsEmpty(){
+        return front==-1;
+    }
+    bool IsFull(){
+        return (rear+1)%size==front;
+    }
+    void push(int x){
+        if (IsEmpty()){
+            front=rear=0;
+            arr[0]=x;
+        }else if (IsFull()){
+            cout<<"Queue overflow\n";
+            return;
+        }else{
+            rear=(rear+1)%size;
+            arr[rear]=x;
+        }
+    }
+    void pop(){
+        if (IsEmpty()){
+            cout<<"Queue underflow\n";
+            return;
+        }else{
+            if (front==rear){
+                front=rear=-1;
+            }else{
+                front=(front+1)%size;
+            }
+        }
+    }
+    int start(){
+        if (IsEmpty()){
+            cout<<"Queue is empty\n";
+            return -1;
+        }else{
+            return arr[front];
+        }
+    }
+};
+
+int main() {
+    Queue q(5);
+
+    cout<<"Pushing 10,20,30,40,50\n";
+    q.push(10);
+    q.push(20);
+    q.push(30);
+    q.push(40);
+    q.push(50);
+    cout<<"Front: "<<q.start()<<"\n\n";
+
+    cout<<"Pushing 60 (queue is already full)\n";
+    q.push(60);
+    cout<<"\n";
+
+    cout<<"Popping twice\n";
+    q.pop();
+    q.pop();
+    cout<<"Front: "<<q.start()<<"\n\n";
+
+    cout<<"Pushing 60,70 (rear wraps around to index 0)\n";
+    q.push(60);
+    q.push(70);
+    cout<<"Front: "<<q.start()<<"\n";
+
+    return 0;
+}
