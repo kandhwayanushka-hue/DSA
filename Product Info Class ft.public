@@ -1,1 +1,51 @@
+#include <bits/stdc++.h>
+using namespace std;
 
+class Product_info{
+    public:
+    string prouct_name;
+    int product_id;
+    int price;
+    auto expiry_date;
+    auto manufacturing_date;
+    int sales;
+}
+void input(){
+    cin>>product_name;
+    cin>>product_id;
+    cin>>price;
+    cin>>expiry_date;
+    cin>>manufacturing_date;
+    cin>>sales;
+}
+void output(){
+    cout<<product_name<<endl;
+    cout<<product_id;
+    cout<<discount();
+    cout<<expiry_date;
+    cout<<manufacturing_date;
+}
+void sales(){
+    cout<<sales<<endl;
+}
+void discount(){
+    if (price<1000){
+        cout<<sales<<endl;
+    }else if((price>=1000)&&(price<3000)){
+        cout<<sales-(sales*0.05)<<endl;
+    }else if ((price>=3000)&&(price<5000)){
+        cout<<sales-(sales*0.75)<<endl;
+    }else if ((price>=5000)&&(price<10000)){
+        cout<<sales-(sales*0.1)<<endl;
+    }else{
+        cout<<sales-(sales*0.2)<<endl;
+    }
+}
+int main() {
+    Product_info p;
+    p.input();
+    p.output();
+    p.sales();
+    return 0;
+	
+}
