@@ -1,4 +1,5 @@
-#inlclude <iostream>
+ 
+#include <iostream>
 using namespace std;
 
 #define MAX 5
@@ -6,7 +7,7 @@ using namespace std;
 class Queue
 {
 	private:
-		int arr[MAX]
+		int arr[MAX];
 		int front,rear;
 	public:
 		//constructor -whenever it runs the value gets assigned by its own 
@@ -20,12 +21,11 @@ class Queue
 				return;
 			}
 			if (front==-1){
-				{
-					front=0;
-				}
-				rear++;
-				arr[rear]=value;
-				cout<<value<<"inserted into queue"<<endl;
+			front=0;
+			}
+			rear++;
+			arr[rear]=value;
+			cout<<value<<"inserted into queue"<<endl;
 		}
 		void dequeue(){
 			if (front==-1){
@@ -59,7 +59,10 @@ class Queue
 	};
 	
 	int main(){
-		cout<<"\n-----QUEUE MENU-----"<<endl;
+		Queue q;
+		int choice,value;
+		do{
+			cout<<"\n-----QUEUE MENU-----"<<endl;
     	cout<<"1.Enqueue"<<endl;
     	cout<<"2.Dequeue"<<endl;
     	cout<<"3.Peek"<<endl;
@@ -83,14 +86,17 @@ class Queue
     			
     		case 3:
     			q.peek();
-    			
+    			break;
     		case 4:
     			q.display();
-    			
-    		
-		}
-    	
-	}
-
-    return 0;
+    			break;
+    		case 5:
+    			cout<<"program terminated"<<endl;
+    			break;
+    		default:
+    			cout<<"Invalid choice!"<<endl;
+    		}
+    	}
+		while (choice!=5);
+		return 0;
 }
