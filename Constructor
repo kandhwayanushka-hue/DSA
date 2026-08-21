@@ -1,0 +1,93 @@
+//constructor example 
+//default constructor :Student(int x) :id(x) {}
+
+#include <iostream>
+using namespace std;
+
+class Student{
+	int id;
+	public:
+		Student():id(0) {}
+		void show(){
+			cout<<id<<endl;
+		}
+};
+int main(){
+	Student s;
+	s.show();
+	return 0;
+}
+
+
+
+//copy constructor #include <iostream>
+using namespace std;
+
+class Student {
+    int id;
+
+public:
+    Student() {
+        id = 101;
+    }
+
+    Student(const Student& s) : id(s.id) {}
+
+    void show() {
+        cout << id << endl;
+    }
+};
+
+int main() {
+    Student p;
+    p.show();
+
+    Student q = p;
+    q.show();
+
+    return 0;
+}
+
+
+//parameterized constructor 
+
+
+
+
+
+//deconstructor 
+
+#include <iostream>
+using namespace std;
+
+class Demo{
+	public:
+		Demo() {
+			cout<<"Constructor\n";
+		}
+		~Demo(){
+			cout<<"Deconstructor\n"; 
+		}
+};
+int main(){
+	Demo d;
+	return 0;
+}
+
+
+
+Always include f with the constant w=value (at the end ) it indicates to the  float whenever constant value is passed with value 
+#include <iostream>
+using namespace std;
+
+class Student{
+	public:
+		void display() const {
+		cout<<"Student";
+		}
+};
+int main(){
+	const Student s;
+	s.display();
+}
+
